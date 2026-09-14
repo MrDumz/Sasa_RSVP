@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 900" role="img" aria-labelledby="title desc">
+  <title id="title">Samantha portrait placeholder</title>
+  <desc id="desc">A cheerful illustrated birthday girl surrounded by clouds and stars.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c9efff"/><stop offset=".52" stop-color="#ffe0ed"/><stop offset="1" stop-color="#fff2bb"/></linearGradient>
+    <pattern id="dots" width="42" height="42" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="3" fill="#fff" opacity=".7"/></pattern>
+  </defs>
+  <rect width="800" height="900" fill="url(#bg)"/><rect width="800" height="900" fill="url(#dots)"/>
+  <g fill="#fff" opacity=".82"><ellipse cx="75" cy="190" rx="150" ry="64"/><ellipse cx="690" cy="255" rx="180" ry="76"/><circle cx="135" cy="150" r="68"/><circle cx="618" cy="210" r="76"/></g>
+  <path d="m127 670 76-135c49-88 125-136 206-136s160 48 209 136l73 135v230H127Z" fill="#6ebbe7"/>
+  <path d="M268 456c-55-54-54-174 7-248 72-88 215-83 277 10 45 68 36 175-19 230-61-46-201-45-265 8Z" fill="#5a3e59"/>
+  <ellipse cx="403" cy="361" rx="151" ry="174" fill="#ffd8c5"/>
+  <path d="M258 341c13-133 97-189 181-171 82 17 126 89 119 182-32-26-55-72-68-113-52 54-134 82-232 102Z" fill="#67495f"/>
+  <path d="M332 365q18-18 36 0m68 0q18-18 36 0" fill="none" stroke="#4d5472" stroke-width="10" stroke-linecap="round"/>
+  <path d="M365 424q39 42 79 0" fill="none" stroke="#d66d8f" stroke-width="9" stroke-linecap="round"/>
+  <ellipse cx="305" cy="414" rx="29" ry="17" fill="#f49db8" opacity=".7"/><ellipse cx="500" cy="414" rx="29" ry="17" fill="#f49db8" opacity=".7"/>
+  <path d="M315 566c54 44 125 45 180 0l36 39-127 152-128-151Z" fill="#fff"/>
+  <path d="M286 671c76 41 158 41 237 0" fill="none" stroke="#ffd1e5" stroke-width="24" stroke-linecap="round"/>
+  <g fill="#fff4a8" stroke="#77668f" stroke-width="4"><path d="m133 311 9 23 24 9-24 9-9 24-9-24-24-9 24-9Z"/><path d="m665 410 7 18 19 7-19 7-7 19-7-19-18-7 18-7Z"/></g>
+  <rect x="260" y="782" width="288" height="58" rx="29" fill="#fff" opacity=".9"/><text x="404" y="819" text-anchor="middle" fill="#67718c" font-family="Arial, sans-serif" font-size="24" font-weight="700">REPLACE WITH SAMANTHA'S PHOTO</text>
+</svg>
