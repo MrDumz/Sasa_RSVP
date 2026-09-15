@@ -72,7 +72,7 @@ export function InvitationExperience() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
   const [leaving, setLeaving] = useState(false);
-  const audio = useCelebrationAudio();
+  const audio = useCelebrationAudio(!loading);
 
   useEffect(() => {
     const leaveTimer = window.setTimeout(() => setLeaving(true), 1450);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
 
 const melody = [
   [261.63, 260], [261.63, 140], [293.66, 400], [261.63, 400], [349.23, 400], [329.63, 760],
@@ -9,7 +9,7 @@ const melody = [
   [466.16, 260], [466.16, 140], [440.0, 400], [349.23, 400], [392.0, 400], [349.23, 900],
 ] as const;
 
-export function useCelebrationAudio() {
+export function useCelebrationAudio(autoPlay = false) {
   const contextRef = useRef<AudioContext | null>(null);
   const gainRef = useRef<GainNode | null>(null);
   const oscillatorRef = useRef<OscillatorNode | null>(null);
@@ -55,11 +55,17 @@ export function useCelebrationAudio() {
 
   async function play() {
     const context = ensureAudio();
-    await context.resume();
-    if (playingRef.current) return;
+    try {
+      await context.resume();
+    } catch {
+      return false;
+    }
+    if (context.state !== "running") return false;
+    if (playingRef.current) return true;
     playingRef.current = true;
     setIsPlaying(true);
     playNextNote();
+    return true;
   }
 
   function pause() {
@@ -103,6 +109,32 @@ export function useCelebrationAudio() {
       oscillator.stop(start + 0.38);
     });
   }
+
+  const requestAutoPlay = useEffectEvent(() => play());
+
+  useEffect(() => {
+    if (!autoPlay) return;
+
+    let active = true;
+    const removeUnlockListeners = () => {
+      window.removeEventListener("pointerdown", unlockAudio);
+      window.removeEventListener("keydown", unlockAudio);
+    };
+    const tryAutoPlay = async () => {
+      const started = await requestAutoPlay();
+      if (active && started) removeUnlockListeners();
+    };
+    const unlockAudio = () => void tryAutoPlay();
+
+    window.addEventListener("pointerdown", unlockAudio, { once: true });
+    window.addEventListener("keydown", unlockAudio, { once: true });
+    void tryAutoPlay();
+
+    return () => {
+      active = false;
+      removeUnlockListeners();
+    };
+  }, [autoPlay]);
 
   useEffect(() => () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
