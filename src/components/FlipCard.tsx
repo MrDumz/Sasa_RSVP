@@ -8,7 +8,7 @@ type FlipCardProps = {
   subtitle?: string;
   message: string;
   icon: ReactNode;
-  tone: "gift" | "rose" | "dance";
+  tone: "dance" | "gift" | "treat" | "wish" | "art";
 };
 
 export function FlipCard({ eyebrow, title, subtitle, message, icon, tone }: FlipCardProps) {

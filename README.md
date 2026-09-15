@@ -78,9 +78,9 @@ Replace `public/images/gallery-1.svg` through `gallery-6.svg`, then update the p
 
 Edit `eventDetails` and `programItems` in `src/lib/event-data.ts`. The countdown uses an ISO timestamp with the Philippine UTC offset (`+08:00`). Update page metadata in `src/app/layout.tsx` if the title changes.
 
-### Add the real 7 Gifts, 7 Roses, and 7 Dances lists
+### Add the real seven-part tradition lists
 
-Edit `giftCards`, `roseCards`, and `danceCards` in `src/lib/event-data.ts`. Keep seven objects in each collection. The cards resize and become a swipeable rail on small screens automatically.
+Edit `traditionGroups` in `src/lib/event-data.ts`. Keep seven cards in each collection. The cards resize and become a swipeable rail on small screens automatically.
 
 ### Connect RSVP submissions
 
@@ -92,4 +92,4 @@ Replace `Message coming soon.` in `src/components/InvitationExperience.tsx`. The
 
 ## Asset note
 
-All shipped illustration assets are original placeholders stored locally in `public/images`. The supplied files in `samples/` are retained as visual references only and are not bundled into the website. Use only photos and branded character assets you have permission to publish.
+The Cinnamoroll party artwork in `public/images/cinnamoroll-party.png` was extracted from a supplied reference in `samples/`; the remaining shipped illustrations are original placeholders. Confirm permission to publish branded character artwork before deploying the invitation publicly.

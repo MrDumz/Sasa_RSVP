@@ -5,6 +5,10 @@ import confetti from "canvas-confetti";
 import { gsap } from "gsap";
 import {
   ArrowDown,
+  Balloon,
+  Banknote,
+  CakeSlice,
+  Candy,
   CalendarDays,
   Clock3,
   ExternalLink,
@@ -13,6 +17,8 @@ import {
   Heart,
   MapPin,
   Music,
+  Paintbrush,
+  Palette,
   PartyPopper,
   Sparkles,
 } from "lucide-react";
@@ -27,7 +33,7 @@ import { LoadingScreen } from "./LoadingScreen";
 import { MusicPlayer } from "./MusicPlayer";
 import { RSVPForm } from "./RSVPForm";
 import { useCelebrationAudio } from "@/hooks/useCelebrationAudio";
-import { danceCards, eventDetails, giftCards, programItems, roseCards } from "@/lib/event-data";
+import { eventDetails, programItems, traditionGroups } from "@/lib/event-data";
 
 const burstConfetti = () => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -41,6 +47,14 @@ const burstConfetti = () => {
 };
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+const traditionIcons = {
+  dance: [Music, Flower2],
+  gift: [Gift, Balloon],
+  treat: [Banknote, Candy],
+  wish: [CakeSlice, Sparkles],
+  art: [Palette, Paintbrush],
+} as const;
 
 function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) {
   return (
@@ -178,15 +192,15 @@ export function InvitationExperience() {
               <div className="detail-band" data-aos="fade-up">
                 <article><span><CalendarDays /></span><small>Date</small><h3>{eventDetails.date}</h3><p>Saturday afternoon</p></article>
                 <article><span><Clock3 /></span><small>Time</small><h3>{eventDetails.time}</h3><p>Please arrive 15 minutes early</p></article>
-                <article><span><MapPin /></span><small>Venue</small><h3>{eventDetails.venue}</h3><p>Location details from the hosts</p></article>
+                <article><span><MapPin /></span><small>Venue</small><h3>{eventDetails.venue}</h3><p>Exact map pin available below</p></article>
               </div>
               <div className="map-placeholder" data-aos="zoom-in">
                 <div className="map-grid" aria-hidden="true"><i className="map-road road-one" /><i className="map-road road-two" /><span><MapPin fill="currentColor" /></span></div>
                 <div className="map-copy">
                   <span className="kicker">Party destination</span>
                   <h3>{eventDetails.venue}</h3>
-                  <p>The exact pin and driving instructions can be added here once confirmed.</p>
-                  <a className="secondary-button" href="https://maps.google.com/?q=Dumlao%27s+Residence" target="_blank" rel="noreferrer">Open map placeholder <ExternalLink size={17} /></a>
+                  <p>Open the exact pin in Google Maps for directions to the celebration.</p>
+                  <a className="secondary-button" href={eventDetails.mapUrl} target="_blank" rel="noreferrer">Open exact location <ExternalLink size={17} /></a>
                 </div>
               </div>
             </div>
@@ -208,33 +222,29 @@ export function InvitationExperience() {
             </div>
           </section>
 
-          <section className="traditions-section section-space" id="seven-gifts">
-            <div className="section-inner">
-              <SectionHeading eyebrow="Seven thoughtful surprises" title="7 Gifts" copy="Tap each present to reveal the special wish tucked inside." />
-              <div className="flip-grid" data-aos="fade-up">
-                {giftCards.map((card) => <FlipCard key={card.number} eyebrow={`Gift #${card.number}`} title={card.name} message={card.message} icon={<Gift />} tone="gift" />)}
+          {traditionGroups.map((group) => (
+            <section className={`traditions-section traditions-section--${group.tone} section-space`} id={group.id} key={group.id}>
+              <div className="section-inner">
+                <SectionHeading eyebrow={group.eyebrow} title={group.title} copy={group.copy} />
+                <div className="flip-grid" data-aos="fade-up">
+                  {group.cards.map((card, index) => {
+                    const Icon = traditionIcons[group.tone][index % 2];
+                    return (
+                      <FlipCard
+                        key={card.number}
+                        eyebrow={`${group.itemLabel} #${card.number}`}
+                        title={card.name}
+                        subtitle={card.subtitle}
+                        message={card.message}
+                        icon={<Icon />}
+                        tone={group.tone}
+                      />
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          </section>
-
-          <section className="traditions-section roses-section section-space" id="seven-roses">
-            <div className="section-inner">
-              <SectionHeading eyebrow="Seven blooms of love" title="7 Roses" copy="Seven people, seven stories, and seven roses for our birthday girl." />
-              <div className="flip-grid" data-aos="fade-up">
-                {roseCards.map((card) => <FlipCard key={card.number} eyebrow={`Rose #${card.number}`} title={card.name} subtitle={card.relationship} message={card.message} icon={<Flower2 />} tone="rose" />)}
-              </div>
-            </div>
-          </section>
-
-          <section className="traditions-section dances-section section-space" id="seven-dances">
-            <div className="spotlight" aria-hidden="true" />
-            <div className="section-inner">
-              <SectionHeading eyebrow="Seven twirls together" title="7 Dances" copy="A little music, a little sparkle, and memories that move with us." />
-              <div className="flip-grid" data-aos="fade-up">
-                {danceCards.map((card) => <FlipCard key={card.number} eyebrow={`Dance #${card.number}`} title={card.name} message={card.message} icon={<Music />} tone="dance" />)}
-              </div>
-            </div>
-          </section>
+            </section>
+          ))}
 
           <section className="gallery-section section-space" id="gallery">
             <div className="section-inner">

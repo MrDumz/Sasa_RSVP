@@ -398,7 +398,7 @@ button {
 .portrait-pup {
   position: absolute;
   z-index: 7;
-  right: -6%;
+  right: 0;
   bottom: -3%;
   width: 45%;
   filter: drop-shadow(0 10px 10px rgba(62,93,127,.13));
@@ -737,9 +737,11 @@ button {
 .timeline h3 { margin: 0; padding: 14px 18px; border: 1px solid rgba(73,105,145,.1); border-radius: 7px; background: rgba(255,255,255,.76); font-family: var(--font-accent); font-size: .97rem; }
 
 .traditions-section { background: #fff; }
-.roses-section { background: linear-gradient(180deg, #fff8fb, #fff); }
-.dances-section { overflow: hidden; background: linear-gradient(150deg, #edf7ff, #f5f1ff 55%, #fff6d7); }
-.spotlight { position: absolute; top: -10%; left: 50%; width: 380px; height: 120%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent); filter: blur(20px); transform: translateX(-50%) rotate(7deg); }
+.traditions-section--dance { background: linear-gradient(150deg, #edf7ff, #f5f1ff 55%, #fff6d7); }
+.traditions-section--gift { background: linear-gradient(180deg, #fff, #eefaff); }
+.traditions-section--treat { background: linear-gradient(155deg, #fff9dc, #fff 48%, #fff0f6); }
+.traditions-section--wish { background: linear-gradient(155deg, #edf9f5, #fff 48%, #eef8ff); }
+.traditions-section--art { background: linear-gradient(150deg, #fff2f6, #fff9df 48%, #eaf8ff); }
 
 .flip-grid {
   display: grid;
@@ -787,12 +789,16 @@ button {
 }
 
 .flip-card__front { background: linear-gradient(145deg, #fff, #e9f8ff); }
-.flip-card--rose .flip-card__front { background: linear-gradient(145deg, #fff, #ffedf5); }
 .flip-card--dance .flip-card__front { background: linear-gradient(145deg, #fff, #f1efff); }
+.flip-card--treat .flip-card__front { background: linear-gradient(145deg, #fff, #fff3dc); }
+.flip-card--wish .flip-card__front { background: linear-gradient(145deg, #fff, #eaf8f3); }
+.flip-card--art .flip-card__front { background: linear-gradient(145deg, #fff, #fff0f4); }
 .flip-card__back { color: #4f5677; background: linear-gradient(145deg, #fff8d8, #fff); transform: rotateY(180deg); }
 .flip-card__icon { display: grid; width: 58px; height: 58px; margin-bottom: 17px; place-items: center; border-radius: 50%; color: #3e83b9; background: var(--sky-light); }
-.flip-card--rose .flip-card__icon { color: #c96490; background: var(--pink); }
 .flip-card--dance .flip-card__icon { color: #735eb0; background: var(--lavender); }
+.flip-card--treat .flip-card__icon { color: #a36b35; background: var(--yellow); }
+.flip-card--wish .flip-card__icon { color: #347e6a; background: var(--mint); }
+.flip-card--art .flip-card__icon { color: #c45d87; background: var(--pink); }
 .flip-card__face small { color: #788197; font-size: .7rem; font-weight: 800; text-transform: uppercase; }
 .flip-card__face strong { margin-top: 7px; font-family: var(--font-accent); font-size: 1.08rem; }
 .flip-card__face > span:not(.flip-card__icon) { margin-top: 3px; color: #7c8393; font-size: .77rem; }
@@ -912,7 +918,7 @@ footer { position: relative; display: flex; min-height: 330px; padding: 90px 24p
 footer p { position: relative; z-index: 3; margin: 0 0 7px; font-family: var(--font-display); font-size: clamp(1.55rem, 4vw, 2.4rem); font-weight: 700; }
 footer > span { position: relative; z-index: 3; display: flex; align-items: center; gap: 5px; color: #7a8295; font-size: .78rem; }
 footer > span svg { color: #e975a7; }
-.footer-pup { position: absolute; z-index: 2; top: -25px; left: 50%; width: 190px; transform: translateX(-50%); }
+.footer-pup { position: absolute; z-index: 2; top: 12px; left: 50%; width: 190px; transform: translateX(-50%); }
 .footer-clouds { position: absolute; right: -5%; bottom: -90px; left: -5%; height: 230px; border-radius: 50% 50% 0 0; background: rgba(255,255,255,.74); }
 
 .music-player {
@@ -971,7 +977,7 @@ footer > span svg { color: #e975a7; }
 }
 
 .loading-screen--leaving { opacity: 0; visibility: hidden; transform: scale(1.05); }
-.loading-screen p { position: relative; z-index: 2; margin: -24px 0 12px; font-family: var(--font-accent); font-size: .95rem; font-weight: 700; }
+.loading-screen p { position: relative; z-index: 2; margin: 8px 0 12px; font-family: var(--font-accent); font-size: .95rem; font-weight: 700; }
 .loading-pup { position: relative; z-index: 2; width: min(320px, 74vw); animation: loading-float 2.2s ease-in-out infinite; }
 .loading-rainbow { position: absolute; top: 50%; left: 50%; width: min(660px, 120vw); aspect-ratio: 2; border: 28px solid rgba(255,255,255,.45); border-bottom: 0; border-radius: 50% 50% 0 0; transform: translate(-50%, -44%); }
 .loading-star { position: absolute; color: #fff; font-size: 2rem; animation: twinkle 1.5s ease-in-out infinite alternate; }
