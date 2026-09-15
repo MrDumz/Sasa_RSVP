@@ -1,13 +1,12 @@
 export const eventDetails = {
-  celebrant: "Samantha Uelona S. Dumlao",
+  celebrant: "Samantha Uelona Dumlao",
   title: "Samantha's Magical 7th Birthday",
   date: "December 5, 2026",
   time: "3:00 PM",
   venue: "Dumlao's Residence",
   mapUrl: "https://maps.app.goo.gl/eWUiXap2XDHz9jV38",
+  dressCode: "Any pastel color except blue",
   countdownDate: "2026-12-05T15:00:00+08:00",
-  rsvpUrl:
-    "https://docs.google.com/spreadsheets/d/1t0JVsrHtHA-SLVMUDiTfk0fEcb4UJLpbFaSumHNXWEM/edit?usp=drive_link",
   contacts: ["Sam Dumlao", "Apple San Felipe"],
 } as const;
 

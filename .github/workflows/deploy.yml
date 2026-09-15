@@ -38,6 +38,8 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build static export
+        env:
+          NEXT_PUBLIC_RSVP_ENDPOINT: https://script.google.com/macros/s/AKfycbzT2PB7gm-LSLuF9cSbClKEemE3y6apQchkHrHstxVuAMYmsMhGw4aAAukWdQwGcXbb/exec
         run: npm run build
 
       - name: Upload artifact

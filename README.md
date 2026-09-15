@@ -84,7 +84,24 @@ Edit `traditionGroups` in `src/lib/event-data.ts`. Keep seven cards in each coll
 
 ### Connect RSVP submissions
 
-The current form demonstrates validation and a success state but deliberately stores no personal information. Replace the submit handler in `src/components/RSVPForm.tsx` with Formspree, a Google Apps Script endpoint, or a private API. The existing **RSVP Now** button opens the supplied Google Sheet in a new tab; update `rsvpUrl` and `contacts` in `src/lib/event-data.ts`.
+The RSVP form submits to a Google Apps Script web app. The script source is in `google-apps-script/Code.gs` and targets the assigned spreadsheet. On the first valid submission, it creates a private `RSVP Responses` tab with these columns:
+
+`Timestamp`, `Submission ID`, `Name`, `Contact`, `Attendance`, `Guests`, and `Message`.
+
+To deploy the endpoint:
+
+1. Open the assigned Google Spreadsheet as its owner, then select **Extensions > Apps Script**.
+2. Replace the Apps Script editor contents with `google-apps-script/Code.gs` and save.
+3. Select **Deploy > New deployment > Web app**.
+4. Set **Execute as** to the spreadsheet owner and **Who has access** to **Anyone**.
+5. Deploy, authorize spreadsheet access, and copy the deployed URL ending in `/exec`.
+6. In the spreadsheet sharing settings, change **General access** to **Restricted** so only organizers can read responses.
+7. For local development, copy `.env.example` to `.env.local` and replace the placeholder URL.
+8. GitHub Pages builds use the deployed `/exec` URL configured as `NEXT_PUBLIC_RSVP_ENDPOINT` in `.github/workflows/deploy.yml`. Replace that value and rerun the deployment workflow after creating a new Apps Script deployment.
+
+`NEXT_PUBLIC_RSVP_ENDPOINT` is intentionally public because browsers must call it. Never place Google credentials or OAuth tokens in a `NEXT_PUBLIC_` variable. Keep the spreadsheet itself restricted to organizers; the invitation no longer links guests directly to it.
+
+The handler validates field lengths and attendance values, neutralizes formula-like text, deduplicates retries by submission UUID, serializes writes with `LockService`, and includes a honeypot plus minimum completion time for basic spam resistance.
 
 ### Add the parents' message
 

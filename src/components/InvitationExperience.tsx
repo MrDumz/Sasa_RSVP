@@ -20,6 +20,7 @@ import {
   Paintbrush,
   Palette,
   PartyPopper,
+  Shirt,
   Sparkles,
 } from "lucide-react";
 import Image from "next/image";
@@ -150,7 +151,9 @@ export function InvitationExperience() {
             <div className="hero-inner">
               <div className="hero-copy">
                 <span className="hero-eyebrow">Join us as we celebrate</span>
-                <h1 id="hero-title"><span>Samantha Uelona</span> S. Dumlao</h1>
+                <h1 className="hero-name" id="hero-title" aria-label="Samantha Uelona">
+                  <span className="hero-name__given">Samantha Uelona</span>
+                </h1>
                 <div className="turning-seven"><small>Turning</small><strong>7</strong><span>magical years</span></div>
                 <p className="hero-intro">A dreamy afternoon of wishes, laughter, and a little bit of cloud-top magic.</p>
                 <div className="hero-facts" aria-label="Event summary">
@@ -202,6 +205,21 @@ export function InvitationExperience() {
                   <p>Open the exact pin in Google Maps for directions to the celebration.</p>
                   <a className="secondary-button" href={eventDetails.mapUrl} target="_blank" rel="noreferrer">Open exact location <ExternalLink size={17} /></a>
                 </div>
+              </div>
+              <div className="dress-code" data-aos="fade-up">
+                <div className="dress-code__copy">
+                  <span className="kicker"><Shirt size={15} /> Dress code</span>
+                  <h3>Come dressed in pastels</h3>
+                  <p>{eventDetails.dressCode}.</p>
+                  <strong><span aria-hidden="true" /> Please avoid blue</strong>
+                </div>
+                <ul className="dress-code__palette" aria-label="Suggested pastel colors">
+                  <li><span className="swatch swatch--blush" aria-hidden="true" /><small>Blush</small></li>
+                  <li><span className="swatch swatch--lilac" aria-hidden="true" /><small>Lilac</small></li>
+                  <li><span className="swatch swatch--butter" aria-hidden="true" /><small>Butter</small></li>
+                  <li><span className="swatch swatch--mint" aria-hidden="true" /><small>Mint</small></li>
+                  <li><span className="swatch swatch--peach" aria-hidden="true" /><small>Peach</small></li>
+                </ul>
               </div>
             </div>
           </section>
