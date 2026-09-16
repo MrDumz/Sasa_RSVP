@@ -46,7 +46,7 @@ The static production site is written to `out/`.
 - `canvas-confetti`: lightweight celebration effects
 - `lucide-react`: accessible interface icons
 
-The Happy Birthday instrumental is synthesized with the browser Web Audio API, so it does not autoplay and does not require a licensed audio file or external CDN.
+The Happy Birthday instrumental is synthesized with the browser Web Audio API, starts automatically when browser policy permits, and does not require a licensed audio file or external CDN. If autoplay is blocked, the first page interaction starts it.
 
 ## Deploy to Vercel
 
@@ -86,7 +86,9 @@ Edit `traditionGroups` in `src/lib/event-data.ts`. Keep seven cards in each coll
 
 The RSVP form submits to a Google Apps Script web app. The script source is in `google-apps-script/Code.gs` and targets the assigned spreadsheet. On the first valid submission, it creates a private `RSVP Responses` tab with these columns:
 
-`Timestamp`, `Submission ID`, `Name`, `Contact`, `Attendance`, `Guests`, and `Message`.
+`Timestamp`, `Submission ID`, `Name`, `Contact`, `Attendance`, `Guests`, `Adults`, `Kids`, and `Message`.
+
+`Guests` stores the combined total of `Adults` and `Kids`. When the updated script receives its first submission, an existing seven-column response tab is migrated automatically by inserting the new breakdown columns without removing earlier responses.
 
 To deploy the endpoint:
 

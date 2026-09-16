@@ -1,5 +1,14 @@
 const SPREADSHEET_ID = "1t0JVsrHtHA-SLVMUDiTfk0fEcb4UJLpbFaSumHNXWEM";
 const SHEET_NAME = "RSVP Responses";
+const LEGACY_HEADERS = [
+  "Timestamp",
+  "Submission ID",
+  "Name",
+  "Contact",
+  "Attendance",
+  "Guests",
+  "Message",
+];
 const HEADERS = [
   "Timestamp",
   "Submission ID",
@@ -7,6 +16,8 @@ const HEADERS = [
   "Contact",
   "Attendance",
   "Guests",
+  "Adults",
+  "Kids",
   "Message",
 ];
 
@@ -50,6 +61,8 @@ function doPost(event) {
       safeText_(submission.contact),
       submission.attending === "yes" ? "Yes" : "No",
       submission.guests,
+      submission.adults,
+      submission.kids,
       safeText_(submission.message),
     ]]);
     SpreadsheetApp.flush();
@@ -66,12 +79,18 @@ function doPost(event) {
 }
 
 function normalizeSubmission_(parameters) {
+  const hasGuestBreakdown = parameters.adults !== undefined && parameters.kids !== undefined;
+  const adults = hasGuestBreakdown ? Number(parameters.adults) : Number(parameters.guests);
+  const kids = hasGuestBreakdown ? Number(parameters.kids) : 0;
+
   return {
     submissionId: String(parameters.submissionId || "").trim(),
     fullName: String(parameters.fullName || "").trim(),
     contact: String(parameters.contact || "").trim(),
     attending: String(parameters.attending || "").trim().toLowerCase(),
-    guests: Number(parameters.guests),
+    guests: adults + kids,
+    adults,
+    kids,
     message: String(parameters.message || "").trim(),
     website: String(parameters.website || "").trim(),
     startedAt: Number(parameters.startedAt),
@@ -91,8 +110,14 @@ function validateSubmission_(submission) {
   if (submission.attending !== "yes" && submission.attending !== "no") {
     return "Choose whether you will attend.";
   }
-  if (!Number.isInteger(submission.guests) || submission.guests < 1 || submission.guests > 20) {
-    return "Guests must be a whole number from 1 to 20.";
+  if (!Number.isInteger(submission.adults) || submission.adults < 0 || submission.adults > 20) {
+    return "Adults must be a whole number from 0 to 20.";
+  }
+  if (!Number.isInteger(submission.kids) || submission.kids < 0 || submission.kids > 20) {
+    return "Kids must be a whole number from 0 to 20.";
+  }
+  if (submission.guests < 1 || submission.guests > 20) {
+    return "Enter between 1 and 20 guests across the adult and kid counts.";
   }
   if (submission.message.length > 500) {
     return "Keep the message to 500 characters or fewer.";
@@ -112,6 +137,14 @@ function getResponseSheet_(spreadsheet) {
   if (sheet.getLastRow() === 0) {
     sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
     sheet.setFrozenRows(1);
+    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
+    return sheet;
+  }
+
+  const legacyHeaders = sheet.getRange(1, 1, 1, LEGACY_HEADERS.length).getDisplayValues()[0];
+  if (legacyHeaders.join("|") === LEGACY_HEADERS.join("|")) {
+    sheet.insertColumnsAfter(6, 2);
+    sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
     return sheet;
   }

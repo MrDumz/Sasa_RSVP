@@ -958,6 +958,9 @@ button {
 .rsvp-form > label { margin-bottom: 20px; }
 .rsvp-form fieldset { display: flex; margin: 0; padding: 0; border: 0; flex-wrap: wrap; gap: 8px; }
 .rsvp-form legend { width: 100%; margin-bottom: 8px; }
+.rsvp-form .guest-count { display: block; }
+.guest-count__fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.guest-count small { display: block; margin-top: 8px; color: #82899b; font-size: .68rem; line-height: 1.4; }
 .radio-pill { position: relative; display: flex; min-height: 39px; padding: 8px 12px; border: 1px solid #d9e3ec; border-radius: 999px; align-items: center; gap: 7px; background: #fbfdff; cursor: pointer; }
 .radio-pill input { width: 15px; height: 15px; margin: 0; accent-color: #4c94c9; }
 .rsvp-form .primary-button { align-self: flex-start; }

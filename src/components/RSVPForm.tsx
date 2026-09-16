@@ -32,6 +32,15 @@ export function RSVPForm() {
     const form = event.currentTarget;
     const formData = new FormData(form);
     const fullName = String(formData.get("fullName") || "").trim();
+    const adults = Number(formData.get("adults"));
+    const kids = Number(formData.get("kids"));
+    const guests = adults + kids;
+
+    if (!Number.isInteger(adults) || !Number.isInteger(kids) || adults < 0 || kids < 0 || guests < 1 || guests > 20) {
+      setErrorMessage("Enter between 1 and 20 guests across the adult and kid counts.");
+      return;
+    }
+
     submissionIdRef.current ??= crypto.randomUUID();
 
     const payload = new URLSearchParams({
@@ -39,7 +48,9 @@ export function RSVPForm() {
       fullName,
       contact: String(formData.get("contact") || "").trim(),
       attending: String(formData.get("attending") || ""),
-      guests: String(formData.get("guests") || ""),
+      guests: String(guests),
+      adults: String(adults),
+      kids: String(kids),
       message: String(formData.get("message") || "").trim(),
       website: String(formData.get("website") || ""),
       startedAt: String(startedAtRef.current ?? Date.now()),
@@ -113,7 +124,14 @@ export function RSVPForm() {
               <label>Contact Number<input name="contact" type="tel" inputMode="tel" autoComplete="tel" required maxLength={30} disabled={isSending} placeholder="09XX XXX XXXX" /></label>
             </div>
             <div className="form-row form-row--short">
-              <label>Number of Guests<input name="guests" type="number" min="1" max="20" defaultValue="1" required disabled={isSending} /></label>
+              <fieldset className="guest-count">
+                <legend>Number of Guests</legend>
+                <div className="guest-count__fields">
+                  <label>Adults<input name="adults" type="number" inputMode="numeric" min="0" max="20" defaultValue="1" required disabled={isSending} /></label>
+                  <label>Kids<input name="kids" type="number" inputMode="numeric" min="0" max="20" defaultValue="0" required disabled={isSending} /></label>
+                </div>
+                <small>Include yourself. Maximum 20 guests total.</small>
+              </fieldset>
               <fieldset>
                 <legend>Will you attend?</legend>
                 <label className="radio-pill"><input type="radio" name="attending" value="yes" required disabled={isSending} /> Yes, happily!</label>
