@@ -156,11 +156,6 @@ export function InvitationExperience() {
                 </h1>
                 <div className="turning-seven"><small>Turning</small><strong>7</strong><span>magical years</span></div>
                 <p className="hero-intro">A dreamy afternoon of wishes, laughter, and a little bit of cloud-top magic.</p>
-                <div className="hero-facts" aria-label="Event summary">
-                  <span><CalendarDays size={18} /> December 5, 2026</span>
-                  <span><Clock3 size={18} /> 3:00 PM</span>
-                  <span><MapPin size={18} /> Dumlao&apos;s Residence</span>
-                </div>
                 <div className="hero-actions">
                   <a className="primary-button" href="#rsvp">Save my seat <ArrowDown size={18} /></a>
                   <button className="secondary-button" type="button" onClick={celebrate}><PartyPopper size={18} /> Celebrate</button>

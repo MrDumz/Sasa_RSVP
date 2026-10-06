@@ -35,7 +35,7 @@ export const traditionGroups = [
   {
     id: "seven-dances-roses",
     tone: "dance",
-    eyebrow: "Seven graceful celebrations",
+    eyebrow: "Graceful celebrations",
     title: "7 Dances and Roses",
     copy: "Seven special partners, seven lovely roses, and memories that move with us.",
     itemLabel: "Dance & Rose",
@@ -48,7 +48,7 @@ export const traditionGroups = [
   {
     id: "seven-gifts",
     tone: "gift",
-    eyebrow: "Seven thoughtful surprises",
+    eyebrow: "Thoughtful surprises",
     title: "7 Gifts and Balloons",
     copy: "Seven presents and seven bright balloons to make Samantha's day soar.",
     itemLabel: "Gift & Balloon",
@@ -61,7 +61,7 @@ export const traditionGroups = [
   {
     id: "seven-bills-chocolates",
     tone: "treat",
-    eyebrow: "Seven sweet blessings",
+    eyebrow: "Sweet blessings",
     title: "7 Bills and Chocolates",
     copy: "A little blessing for the future, paired with something sweet for today.",
     itemLabel: "Bill & Chocolate",
@@ -74,7 +74,7 @@ export const traditionGroups = [
   {
     id: "seven-candles-wishes",
     tone: "wish",
-    eyebrow: "Seven lights of love",
+    eyebrow: "Lights of love",
     title: "7 Candles and Wishes",
     copy: "Seven candles glow while seven heartfelt wishes light Samantha's way.",
     itemLabel: "Candle & Wish",
@@ -87,7 +87,7 @@ export const traditionGroups = [
   {
     id: "seven-coloring-book",
     tone: "art",
-    eyebrow: "Seven stories to color",
+    eyebrow: "Stories to color",
     title: "7 Coloring Book",
     copy: "Seven coloring books filled with new worlds for Samantha to bring to life.",
     itemLabel: "Coloring Book",
@@ -100,7 +100,7 @@ export const traditionGroups = [
   {
     id: "seven-sketchbook",
     tone: "art",
-    eyebrow: "Seven pages of imagination",
+    eyebrow: "Pages of imagination",
     title: "7 Sketchbook",
     copy: "Seven sketchbooks ready for Samantha's ideas, doodles, and future masterpieces.",
     itemLabel: "Sketchbook",
@@ -113,7 +113,7 @@ export const traditionGroups = [
   {
     id: "seven-coloring-materials",
     tone: "art",
-    eyebrow: "Seven colorful possibilities",
+    eyebrow: "Colorful possibilities",
     title: "7 Coloring Materials",
     copy: "Seven sets of coloring materials to fill Samantha's creative days with every shade of joy.",
     itemLabel: "Coloring Materials",

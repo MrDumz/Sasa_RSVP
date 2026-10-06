@@ -186,13 +186,18 @@ button {
   z-index: 5;
   display: grid;
   width: min(1160px, 100%);
+  min-width: 0;
   grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
   align-items: center;
   gap: clamp(36px, 6vw, 88px);
 }
 
 .hero-copy {
+  width: 100%;
+  min-width: 0;
   max-width: 650px;
+  justify-self: start;
+  text-align: left;
 }
 
 .hero-eyebrow,
@@ -301,25 +306,6 @@ button {
   line-height: 1.7;
 }
 
-.hero-facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.hero-facts span {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 12px;
-  border: 1px solid rgba(66, 93, 132, .11);
-  border-radius: 999px;
-  background: rgba(255,255,255,.65);
-  color: #4e5b79;
-  font-size: .83rem;
-  font-weight: 700;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -387,6 +373,7 @@ button {
 
 .portrait-frame img {
   object-fit: cover;
+  transform: scale(1.35);
 }
 
 .portrait-frame figcaption {
@@ -1074,10 +1061,9 @@ footer > span svg { color: #e975a7; }
 
 @media (max-width: 900px) {
   .hero { min-height: auto; padding-top: 118px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 30px; }
-  .hero-copy { margin: 0 auto; text-align: center; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .hero-copy { margin: 0 auto; justify-self: center; text-align: center; }
   .hero-name { margin-inline: auto; justify-items: center; }
-  .hero-facts,
   .hero-actions { justify-content: center; }
   .portrait-stage { width: min(470px, 88vw); justify-self: center; }
   .scroll-cue { display: none; }
@@ -1106,8 +1092,7 @@ footer > span svg { color: #e975a7; }
   .turning-seven { min-height: 92px; justify-content: center; }
   .turning-seven strong { font-size: 5.5rem; }
   .hero-intro { font-size: .93rem; }
-  .hero-facts { display: grid; justify-items: center; }
-  .hero-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-actions { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero-actions a,
   .hero-actions button { padding-inline: 13px; font-size: .8rem; }
   .portrait-stage { width: min(420px, 94vw); }
