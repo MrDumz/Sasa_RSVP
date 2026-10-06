@@ -60,7 +60,6 @@ export function Gallery() {
   return (
     <>
       <div className="gallery-grid">
-        {/* Replace these placeholder files in public/images with Samantha's photos. */}
         {galleryImages.map((image, index) => (
           <button key={image.src} className={`gallery-item gallery-item--${index + 1}`} onClick={(event) => { openerRef.current = event.currentTarget; setActiveIndex(index); }} aria-label={`Open ${image.alt}`}>
             <Image src={image.src} alt={image.alt} fill sizes="(max-width: 640px) 50vw, 33vw" loading="lazy" />

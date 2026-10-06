@@ -4,6 +4,7 @@ export const eventDetails = {
   date: "December 5, 2026",
   time: "3:00 PM",
   venue: "Dumlao's Residence",
+  address: "B2L33 Southgrove Pointe, Brgy. San Francisco, Sto. Tomas City",
   mapUrl: "https://maps.app.goo.gl/eWUiXap2XDHz9jV38",
   dressCode: "Any pastel color except blue",
   countdownDate: "2026-12-05T15:00:00+08:00",
@@ -11,22 +12,14 @@ export const eventDetails = {
 } as const;
 
 export const programItems = [
-  ["03:00 PM", "Welcome Guests"],
-  ["03:15 PM", "Opening Prayer"],
-  ["03:20 PM", "Opening Remarks"],
-  ["03:30 PM", "Lunch / Snacks"],
-  ["04:00 PM", "Games"],
-  ["04:30 PM", "Magic Show"],
-  ["05:15 PM", "Cake Blowing"],
-  ["05:30 PM", "7 Candles and Wishes"],
-  ["05:45 PM", "7 Dances and Roses"],
-  ["06:00 PM", "7 Gifts and Balloons"],
-  ["06:15 PM", "7 Bills and Chocolates"],
-  ["06:30 PM", "7 Coloring Book"],
-  ["06:45 PM", "7 Sketchbook"],
-  ["07:00 PM", "7 Coloring Materials"],
-  ["07:15 PM", "Photo Session"],
-  ["07:30 PM", "Closing Remarks"],
+  ["03:00 PM", "Guests Arrive"],
+  ["03:10 PM", "Prayer & Opening"],
+  ["03:25 PM", "Early Dinner"],
+  ["03:50 PM", "Games and Magic Show"],
+  ["04:30 PM", "Birthday Ceremony"],
+  ["04:35 PM", "7 Traditional Birthday Segments"],
+  ["05:25 PM", "Photos"],
+  ["05:30 PM", "Closing"],
 ] as const;
 
 function createTraditionCards(names: readonly string[], subtitle: string, message: string) {
@@ -47,7 +40,7 @@ export const traditionGroups = [
     copy: "Seven special partners, seven lovely roses, and memories that move with us.",
     itemLabel: "Dance & Rose",
     cards: createTraditionCards(
-      ["Shmuel Oest Dumlao", "Zac Jayden Dela Cruz", "Ethan Niel Chromwell Garcia", "Gilbert San Felipe", "Santos San Felipe", "Samuel Dumlao", "Samuel Dumlao Jr."],
+      ["Shmuel Uest Dumlao", "Zac Jayden Dela Cruz", "Ethan Niel Chromwell Garcia", "Gilbert San Felipe", "Santos San Felipe", "Samuel Dumlao", "Samuel Dumlao Jr."],
       "Dance partner & rose presenter",
       "A loving dance and rose dedication for Samantha.",
     ),
@@ -60,7 +53,7 @@ export const traditionGroups = [
     copy: "Seven presents and seven bright balloons to make Samantha's day soar.",
     itemLabel: "Gift & Balloon",
     cards: createTraditionCards(
-      ["Ma'am Beth Bonita", "Paul Jeric Tatlonghari", "Prince Rashd Fernando", "LJ Facturan", "Randy Miranda", "Anthony Zumba", "Glenn Zulueta"],
+      ["Ma'am Beth Bonita", "Paul Jeric Tatlonghari", "Prince Rashd Fernando", "LJ Facturan", "Randy Miranda", "Zhushen Edward Dela Cruz", "Ronald Castillo"],
       "Gift giver & balloon bearer",
       "A thoughtful gift and cheerful balloon for Samantha.",
     ),
@@ -73,7 +66,7 @@ export const traditionGroups = [
     copy: "A little blessing for the future, paired with something sweet for today.",
     itemLabel: "Bill & Chocolate",
     cards: createTraditionCards(
-      ["Vic Miranda", "Jayson Hilario", "Joker", "Shan San Felipe", "Jude Dumlao", "Santos San Felipe", "Samuel Dumlao"],
+      ["Vic Miranda", "Jayson Hilario", "Joker Gonzales", "Shan San Felipe", "Jude Dumlao", "Santos San Felipe", "Samuel Dumlao"],
       "Blessing giver",
       "A sweet blessing and chocolate treat for Samantha.",
     ),
@@ -99,7 +92,7 @@ export const traditionGroups = [
     copy: "Seven coloring books filled with new worlds for Samantha to bring to life.",
     itemLabel: "Coloring Book",
     cards: createTraditionCards(
-      ["Royce Ashton Chico", "Sean", "Gab", "Gelo Paliwanagan", "Ethan", "Apo ni tita Rosalina", "Pios"],
+      ["Royce Ashton Chico", "Sean Kendrick Tagle", "Gab Nathaniel Ybañez", "Gelo Paglinawan", "Ethan Jamir Teodoro", "Marizon Kinsley Cao", "Pius Wyne Gamo"],
       "Coloring book giver",
       "A wonderful coloring book for Samantha's creative adventures.",
     ),
@@ -112,7 +105,7 @@ export const traditionGroups = [
     copy: "Seven sketchbooks ready for Samantha's ideas, doodles, and future masterpieces.",
     itemLabel: "Sketchbook",
     cards: createTraditionCards(
-      ["Pareng Tim", "Mark Jade Zulueta", "Ronald Castillo", "Mareng Ivy", "Kaycee Tatlonghari", "Jamie Joy Garcia", "Pareng Ryan"],
+      ["Tim Mantaring", "Mark Jade Zulueta", "Gleen Zulueta", "Ivy Claire Cabilogan", "Kaycee Tatlonghari", "Jamie Joy Garcia", "Ryan Dale Egaña"],
       "Sketchbook giver",
       "A special sketchbook for Samantha's brightest ideas.",
     ),
@@ -125,7 +118,7 @@ export const traditionGroups = [
     copy: "Seven sets of coloring materials to fill Samantha's creative days with every shade of joy.",
     itemLabel: "Coloring Materials",
     cards: createTraditionCards(
-      ["Ysabella Nicole Carmen Garcia", "Bella", "Juris Hennesy Hilario", "Kindra Soberano", "Ate Pintet", "Margaux", "Athena Riley Miraflor"],
+      ["Ysabella Nicole Carmen Garcia", "Hailey Maevis Pascua", "Juris Hennesy Hilario", "Kindra Soberano", "Princess De Guzman", "Jorgina Macaldo", "Athena Riley Miraflor"],
       "Coloring materials giver",
       "Colorful materials for Samantha's next creative masterpiece.",
     ),
@@ -135,6 +128,6 @@ export const traditionGroups = [
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const galleryImages = Array.from({ length: 6 }, (_, index) => ({
-  src: `${basePath}/images/gallery-${index + 1}.svg`,
-  alt: `Samantha photo placeholder ${index + 1}`,
+  src: `${basePath}/images/gallery-${index + 1}.webp`,
+  alt: `Samantha's seventh birthday photoshoot, photo ${index + 1}`,
 }));

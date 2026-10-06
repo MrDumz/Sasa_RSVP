@@ -167,13 +167,12 @@ export function InvitationExperience() {
                 </div>
               </div>
 
-              <div className="portrait-stage" aria-label="Samantha's portrait placeholder">
+              <div className="portrait-stage" aria-label="Samantha's birthday portrait">
                 <div className="portrait-rainbow" aria-hidden="true"><i /><i /><i /></div>
                 <span className="portrait-star portrait-star--one" aria-hidden="true">✦</span>
                 <span className="portrait-star portrait-star--two" aria-hidden="true">✧</span>
                 <figure className="portrait-frame">
-                  {/* Replace with Samantha's photo: update public/images/samantha-placeholder.svg or change this src. */}
-                  <Image src={`${basePath}/images/samantha-placeholder.svg`} alt="Placeholder portrait for Samantha" fill priority sizes="(max-width: 768px) 76vw, 430px" />
+                  <Image src={`${basePath}/images/samantha-portrait.webp`} alt="Samantha wearing a red birthday dress and holding a rose" fill priority sizes="(max-width: 768px) 76vw, 430px" />
                   <figcaption>Our birthday star</figcaption>
                 </figure>
                 <CloudPup compact className="portrait-pup" />
@@ -195,7 +194,7 @@ export function InvitationExperience() {
               <div className="detail-band" data-aos="fade-up">
                 <article><span><CalendarDays /></span><small>Date</small><h3>{eventDetails.date}</h3><p>Saturday afternoon</p></article>
                 <article><span><Clock3 /></span><small>Time</small><h3>{eventDetails.time}</h3><p>Please arrive 15 minutes early</p></article>
-                <article><span><MapPin /></span><small>Venue</small><h3>{eventDetails.venue}</h3><p>Exact map pin available below</p></article>
+                <article><span><MapPin /></span><small>Venue</small><h3>{eventDetails.venue}</h3><p>{eventDetails.address}</p></article>
               </div>
               <div className="map-placeholder" data-aos="zoom-in">
                 <div className="map-grid" aria-hidden="true"><i className="map-road road-one" /><i className="map-road road-two" /><span><MapPin fill="currentColor" /></span></div>
@@ -266,7 +265,7 @@ export function InvitationExperience() {
 
           <section className="gallery-section section-space" id="gallery">
             <div className="section-inner">
-              <SectionHeading eyebrow="Tiny moments, big memories" title="Samantha's gallery" copy="A place for seven favorite smiles. Tap a photo to open the full-screen viewer." />
+              <SectionHeading eyebrow="Tiny moments, big memories" title="Samantha's gallery" copy="Six favorite smiles from Samantha's birthday photoshoot. Tap a photo to open the full-screen viewer." />
               <Gallery />
             </div>
           </section>

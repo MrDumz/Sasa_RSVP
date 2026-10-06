@@ -13,7 +13,7 @@ A mobile-first, interactive birthday invitation built with Next.js, React, TypeS
 |   |-- app/                       # App Router page, metadata, and global styles
 |   |-- components/                # Invitation sections and interactions
 |   |-- hooks/                     # Web Audio birthday melody
-|   `-- lib/event-data.ts          # Event, program, and placeholder content
+|   `-- lib/event-data.ts          # Event, program, tradition, and gallery content
 |-- next.config.ts                 # Static export and Pages base path
 |-- package.json
 `-- tsconfig.json
@@ -68,11 +68,11 @@ The project uses static export, which Vercel serves directly.
 
 ### Replace Samantha's portrait
 
-Replace `public/images/samantha-placeholder.svg` with Samantha's image while keeping the same filename, or update the `src` inside `src/components/InvitationExperience.tsx`. A square or vertical image at least 1200px tall works best. Keep the existing `alt` text accurate.
+Replace `public/images/samantha-portrait.webp` with Samantha's optimized portrait, or update the `src` inside `src/components/InvitationExperience.tsx`. A vertical WebP image around 1600 by 2400 pixels works best. Remove private image metadata and keep the `alt` text accurate.
 
 ### Update gallery photos
 
-Replace `public/images/gallery-1.svg` through `gallery-6.svg`, then update the paths and descriptions in `src/lib/event-data.ts` if the file extensions or meanings change. The gallery already supports lazy loading, keyboard navigation, zoom, and mobile swipe.
+Replace `public/images/gallery-1.webp` through `gallery-6.webp`, then update the paths and descriptions in `src/lib/event-data.ts` if the filenames or meanings change. Resize photos to a maximum 2400-pixel edge and export as WebP before adding them. The gallery already supports lazy loading, keyboard navigation, zoom, and mobile swipe.
 
 ### Change event details
 
@@ -111,4 +111,4 @@ Replace `Message coming soon.` in `src/components/InvitationExperience.tsx`. The
 
 ## Asset note
 
-The Cinnamoroll party artwork in `public/images/cinnamoroll-party.png` was extracted from a supplied reference in `samples/`; the remaining shipped illustrations are original placeholders. Confirm permission to publish branded character artwork before deploying the invitation publicly.
+The Cinnamoroll party artwork in `public/images/cinnamoroll-party.png` was extracted from a supplied reference in `samples/`. Confirm permission to publish branded character artwork and celebrant photos before deploying the invitation publicly.
