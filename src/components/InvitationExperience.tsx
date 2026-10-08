@@ -35,6 +35,8 @@ import { MusicPlayer } from "./MusicPlayer";
 import { RSVPForm } from "./RSVPForm";
 import { useCelebrationAudio } from "@/hooks/useCelebrationAudio";
 import { eventDetails, programItems, traditionGroups } from "@/lib/event-data";
+import balloonCharacters from "../../samples/sanrio-cinnamoroll-balloons-pack.png";
+import strawberryCharacters from "../../samples/sanrio-strawberry-cinnamoroll-pack.png";
 
 const burstConfetti = () => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -93,7 +95,7 @@ export function InvitationExperience() {
 
     const context = gsap.context(() => {
       if (!reducedMotion) {
-        gsap.from(".hero-copy > *", { y: 34, opacity: 0, duration: 0.8, stagger: 0.11, ease: "power3.out" });
+        gsap.from(".hero-copy > *, .hero-actions", { y: 34, opacity: 0, duration: 0.8, stagger: 0.11, ease: "power3.out" });
         gsap.from(".portrait-stage", { scale: 0.82, opacity: 0, rotate: 3, duration: 1, ease: "back.out(1.4)", delay: 0.2 });
         gsap.to(".hero-spark", { y: -12, rotate: 12, duration: 2.2, repeat: -1, yoyo: true, stagger: 0.2, ease: "sine.inOut" });
       }
@@ -149,13 +151,15 @@ export function InvitationExperience() {
             </div>
 
             <div className="hero-inner">
-              <div className="hero-copy">
-                <span className="hero-eyebrow">Join us as we celebrate</span>
-                <h1 className="hero-name" id="hero-title" aria-label="Samantha Uelona">
-                  <span className="hero-name__given">Samantha Uelona</span>
-                </h1>
-                <div className="turning-seven"><small>Turning</small><strong>7</strong><span>magical years</span></div>
-                <p className="hero-intro">A dreamy afternoon of wishes, laughter, and a little bit of cloud-top magic.</p>
+              <div className="hero-content">
+                <div className="hero-copy">
+                  <span className="hero-eyebrow">Join us as we celebrate</span>
+                  <h1 className="hero-name" id="hero-title" aria-label="Samantha Uelona">
+                    <span className="hero-name__given">Samantha Uelona</span>
+                  </h1>
+                  <div className="turning-seven"><small>Turning</small><strong>7</strong><span>magical years</span></div>
+                  <p className="hero-intro">A dreamy afternoon of wishes, laughter, and a little bit of cloud-top magic.</p>
+                </div>
                 <div className="hero-actions">
                   <a className="primary-button" href="#rsvp">Save my seat <ArrowDown size={18} /></a>
                   <button className="secondary-button" type="button" onClick={celebrate}><PartyPopper size={18} /> Celebrate</button>
@@ -215,6 +219,13 @@ export function InvitationExperience() {
                   <li><span className="swatch swatch--peach" aria-hidden="true" /><small>Peach</small></li>
                 </ul>
               </div>
+              <Image
+                className="character-strip details-characters"
+                src={balloonCharacters}
+                alt=""
+                aria-hidden="true"
+                sizes="(max-width: 680px) 92vw, 620px"
+              />
             </div>
           </section>
 
@@ -234,29 +245,27 @@ export function InvitationExperience() {
             </div>
           </section>
 
-          {traditionGroups.map((group) => (
-            <section className={`traditions-section traditions-section--${group.tone} section-space`} id={group.id} key={group.id}>
-              <div className="section-inner">
-                <SectionHeading eyebrow={group.eyebrow} title={group.title} copy={group.copy} />
-                <div className="flip-grid" data-aos="fade-up">
-                  {group.cards.map((card, index) => {
-                    const Icon = traditionIcons[group.tone][index % 2];
-                    return (
-                      <FlipCard
-                        key={card.number}
-                        eyebrow={`${group.itemLabel} #${card.number}`}
-                        title={card.name}
-                        subtitle={card.subtitle}
-                        message={card.message}
-                        icon={<Icon />}
-                        tone={group.tone}
-                      />
-                    );
-                  })}
-                </div>
+          <section className="traditions-section section-space" id="traditions">
+            <div className="section-inner">
+              <SectionHeading eyebrow="Seven meaningful moments" title="Samantha's 7 traditions" copy="Tap each tradition to meet the special people sharing it with Samantha." />
+              <div className="flip-grid" data-aos="fade-up">
+                {traditionGroups.map((group, index) => {
+                  const Icon = traditionIcons[group.tone][index % 2];
+                  return (
+                    <FlipCard
+                      key={group.id}
+                      eyebrow={group.eyebrow}
+                      title={group.title}
+                      subtitle={group.copy}
+                      presenters={group.presenters}
+                      icon={<Icon />}
+                      tone={group.tone}
+                    />
+                  );
+                })}
               </div>
-            </section>
-          ))}
+            </div>
+          </section>
 
           <section className="gallery-section section-space" id="gallery">
             <div className="section-inner">
@@ -266,6 +275,13 @@ export function InvitationExperience() {
           </section>
 
           <section className="message-section section-space">
+            <Image
+              className="character-strip message-characters"
+              src={strawberryCharacters}
+              alt=""
+              aria-hidden="true"
+              sizes="(max-width: 680px) 92vw, 580px"
+            />
             <div className="section-inner message-wrap" data-aos="zoom-in">
               <span className="message-hearts" aria-hidden="true"><Heart fill="currentColor" /><Heart fill="currentColor" /></span>
               <span className="kicker">With all our love</span>

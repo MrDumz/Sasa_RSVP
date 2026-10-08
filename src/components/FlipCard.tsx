@@ -6,12 +6,12 @@ type FlipCardProps = {
   eyebrow: string;
   title: string;
   subtitle?: string;
-  message: string;
+  presenters: readonly string[];
   icon: ReactNode;
   tone: "dance" | "gift" | "treat" | "wish" | "art";
 };
 
-export function FlipCard({ eyebrow, title, subtitle, message, icon, tone }: FlipCardProps) {
+export function FlipCard({ eyebrow, title, subtitle, presenters, icon, tone }: FlipCardProps) {
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ export function FlipCard({ eyebrow, title, subtitle, message, icon, tone }: Flip
       className={`flip-card flip-card--${tone} ${flipped ? "is-flipped" : ""}`}
       onClick={() => setFlipped((current) => !current)}
       aria-pressed={flipped}
-      aria-label={`${eyebrow}: ${flipped ? "show name" : "show message"}`}
+      aria-label={`${title}: ${flipped ? "show tradition" : "show givers and presenters"}`}
     >
       <span className="flip-card__inner">
         <span className="flip-card__face flip-card__front" aria-hidden={flipped}>
@@ -32,8 +32,13 @@ export function FlipCard({ eyebrow, title, subtitle, message, icon, tone }: Flip
         </span>
         <span className="flip-card__face flip-card__back" aria-hidden={!flipped}>
           <span aria-hidden="true">✦</span>
-          <strong>A little wish</strong>
-          <p>{message}</p>
+          <small>{title}</small>
+          <strong>Givers &amp; presenters</strong>
+          <ol className="flip-card__presenters">
+            {presenters.map((presenter, index) => (
+              <li key={`${presenter}-${index}`}>{presenter}</li>
+            ))}
+          </ol>
           <em>Tap to turn back</em>
         </span>
       </span>

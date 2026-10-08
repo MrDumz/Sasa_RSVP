@@ -1,0 +1,384 @@
+:root {
+  --ink: #384665;
+  --ink-soft: #65718b;
+  --pink: #d86596;
+  --pink-light: #ffd8e8;
+  --blue: #4f94be;
+  --blue-light: #cfeeff;
+  --yellow: #ffe589;
+  --paper: #fffdf9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 638px;
+  min-height: 1013px;
+}
+
+body {
+  display: grid;
+  margin: 0;
+  padding: 24px;
+  place-items: center;
+  color: var(--ink);
+  background: #dceef5;
+  font-family: "Nunito", sans-serif;
+}
+
+.magnet {
+  position: relative;
+  width: 638px;
+  height: 1013px;
+  overflow: hidden;
+  border: 1px solid rgba(65, 91, 126, .16);
+  border-radius: 34px;
+  background:
+    linear-gradient(154deg, rgba(210, 240, 255, .98), rgba(255, 225, 238, .96) 52%, rgba(255, 248, 210, .98)),
+    var(--paper);
+  box-shadow: 0 24px 60px rgba(54, 87, 116, .22);
+  isolation: isolate;
+}
+
+.magnet::before {
+  position: absolute;
+  z-index: 1;
+  inset: 14px;
+  border: 2px solid rgba(255, 255, 255, .78);
+  border-radius: 24px;
+  content: "";
+  pointer-events: none;
+}
+
+.pattern {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: .5;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, .96) 0 2px, transparent 2.5px);
+  background-size: 34px 34px;
+}
+
+.memory-photos {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.memory-photo {
+  position: absolute;
+  top: 112px;
+  width: 206px;
+  height: 310px;
+  object-fit: cover;
+  opacity: .26;
+  filter: saturate(.82) contrast(.94);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 38%, rgba(0, 0, 0, .72) 56%, transparent 76%);
+  mask-image: radial-gradient(ellipse at center, #000 38%, rgba(0, 0, 0, .72) 56%, transparent 76%);
+}
+
+.memory-photo--left {
+  left: -48px;
+  object-position: center 53%;
+  transform: rotate(-6deg);
+}
+
+.memory-photo--right {
+  right: -48px;
+  object-position: center 44%;
+  transform: rotate(6deg);
+}
+
+.background-pup {
+  position: absolute;
+  z-index: 0;
+  right: 20px;
+  bottom: 130px;
+  width: 300px;
+  height: auto;
+  opacity: .2;
+  filter: saturate(.75);
+  mix-blend-mode: multiply;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.portrait-panel {
+  position: absolute;
+  z-index: 2;
+  top: 152px;
+  left: 0;
+  width: 638px;
+  height: 723px;
+}
+
+.portrait-frame {
+  position: absolute;
+  inset: 0 69px 14px;
+  margin: 0;
+  overflow: hidden;
+  border: 8px solid rgba(255, 255, 255, .94);
+  border-radius: 49% 49% 42% 42% / 37% 37% 26% 26%;
+  background: var(--pink-light);
+  box-shadow: 0 0 0 3px rgba(216, 101, 150, .32), 0 14px 30px rgba(70, 101, 136, .2);
+  transform: rotate(-1.5deg);
+}
+
+.portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 200%;
+  transform: translateY(-200px) translateX(20px) scale(2.0);
+}
+
+.balloon-character {
+  position: absolute;
+  z-index: 3;
+  left: -1px;
+  right: auto;
+  bottom: -137px;
+  width: 500px;
+  height: auto;
+  filter: drop-shadow(0 8px 8px rgba(60, 89, 120, .15));
+}
+
+.magnet-copy {
+  position: absolute;
+  z-index: 3;
+  top: 34px;
+  right: 38px;
+  bottom: 30px;
+  left: 38px;
+}
+
+.eyebrow,
+.keepsake-details small,
+.signature span {
+  color: #705b88;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  font-size: 17px;
+  text-align: center;
+}
+
+h1 {
+  width: fit-content;
+  margin: 0 auto;
+  color: var(--pink);
+  font-family: "Pacifico", "Comic Sans MS", cursive;
+  font-size: 102px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+  text-shadow: 0 4px 0 rgba(255, 255, 255, .9);
+  transform: rotate(-1deg);
+}
+
+.birthday-line {
+  position: absolute;
+  top: 120px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.birthday-line span {
+  align-self: flex-start;
+  color: var(--ink-soft);
+  font-family: "Fredoka", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: right;
+}
+
+.birthday-line span:last-child {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+}
+
+.birthday-line strong {
+  color: var(--pink);
+  align-self: flex-start;
+  font-family: "Fredoka", sans-serif;
+  font-size: 250px;
+  line-height: .78;
+  text-shadow: 4px 5px 0 #fff, 7px 8px 0 rgba(216, 101, 150, .22);
+}
+
+.keepsake-details {
+  position: absolute;
+  top: 722px;
+  right: 0;
+  width: 280px;
+  display: grid;
+  min-height: 84px;
+  padding: 12px 0;
+  grid-template-columns: 1fr;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  text-align: right;
+}
+
+.keepsake-details div:last-child {
+  text-align: right;
+}
+
+.keepsake-details small,
+.keepsake-details strong,
+.closing-copy {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, .98),
+    0 0 5px rgba(255, 255, 255, .96),
+    0 0 12px rgba(255, 255, 255, .88);
+}
+
+.keepsake-details small {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+.keepsake-details strong {
+  display: block;
+  font-family: "Fredoka", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.keepsake-details > span {
+  display: grid;
+  place-items: center;
+  color: #d96d9e;
+  font-size: 22px;
+}
+
+.magnet-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  min-height: 120px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(66, 91, 121, .14);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.closing-copy {
+  max-width: 300px;
+  margin: 0 0 7px;
+  color: var(--ink);
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.signature {
+  text-align: right;
+}
+
+.signature span {
+  display: block;
+  margin-bottom: 1px;
+  font-size: 15px;
+}
+
+.signature strong {
+  display: block;
+  color: var(--pink);
+  font-family: "Pacifico", "Comic Sans MS", cursive;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.spark {
+  position: absolute;
+  z-index: 2;
+  color: #d96d9e;
+  font-family: Georgia, serif;
+}
+
+.spark-one { top: 25px; left: 31px; font-size: 28px; }
+.spark-two { top: 24px; right: 30px; color: #4f9ac6; font-size: 24px; }
+.spark-three { right: 306px; bottom: 18px; color: #dab544; font-size: 20px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (width: 638px) and (height: 1013px) {
+  body {
+    padding: 0;
+    background: transparent;
+  }
+
+  .magnet {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media print {
+  @page {
+    size: 2.125in 3.375in;
+    margin: 0;
+  }
+
+  html,
+  body {
+    width: 2.125in;
+    height: 3.375in;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  body {
+    padding: 0;
+    background: transparent;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .magnet {
+    width: 2.125in;
+    height: 3.375in;
+    border: 0;
+    border-radius: 0;
+    background: url("samantha-ref-magnet.png") center / 100% 100% no-repeat;
+    box-shadow: none;
+  }
+
+  .magnet::before,
+  .magnet > * {
+    display: none;
+  }
+}
