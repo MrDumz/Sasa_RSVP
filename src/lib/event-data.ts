@@ -53,7 +53,7 @@ export const traditionGroups = [
     eyebrow: "Lights of love",
     title: "7 Candles and Wishes",
     copy: "Seven candles glow while seven heartfelt wishes light Samantha's way.",
-    presenters: ["Mommy Apple San Felipe", "Lola-mommyLani Facturan", "Lola Alita Fernando", "Nanay Jhie Tatlonghari", "Mama Leny San Felipe", "Mama Kaycee Tatlonghari", "Aurora Dumlao"],
+    presenters: ["Mommy Apple San Felipe", "Lola-mommyLani Facturan", "Lola Alita Fernando", "Nanay Jhie Tatlonghari", "Mama Leny San Felipe", "Mama Kaycee Tatlonghari", "MangBaket Aurora Dumlao"],
   },
   {
     id: "seven-coloring-book",
