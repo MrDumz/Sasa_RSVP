@@ -29,7 +29,7 @@ export const traditionGroups = [
     eyebrow: "Graceful celebrations",
     title: "7 Dances and Roses",
     copy: "Seven special partners, seven lovely roses, and memories that move with us.",
-    presenters: ["Shmuel Uest Dumlao", "Zac Jayden Dela Cruz", "Ethan Niel Chromwell Garcia", "Gilbert San Felipe", "Santos San Felipe", "Samuel Dumlao", "Samuel Dumlao Jr."],
+    presenters: ["Shmuel Uest Dumlao", "Zac Jayden Dela Cruz", "Ethan Niel Chromwell Garcia", "Papa Gilbert San Felipe", "Lolo Santos San Felipe", "PangLakay Samuel Dumlao", "Daddy Samuel Dumlao Jr."],
   },
   {
     id: "seven-gifts",
@@ -37,7 +37,7 @@ export const traditionGroups = [
     eyebrow: "Thoughtful surprises",
     title: "7 Gifts and Balloons",
     copy: "Seven presents and seven bright balloons to make Samantha's day soar.",
-    presenters: ["Ma'am Beth Bonita", "Paul Jeric Tatlonghari", "Prince Rashd Fernando", "LJ Facturan", "Randy Miranda", "Zhushen Edward Dela Cruz", "Ronald Castillo"],
+    presenters: ["Ma'am Beth Bonita", "Tito Paul Jeric Tatlonghari", "Tito Prince Rashd Fernando", "Tita LJ Facturan", "Tito Randy Miranda", "Kuya Zhushen Edward Dela Cruz", "Tito Ronald Castillo"],
   },
   {
     id: "seven-bills-chocolates",
@@ -45,7 +45,7 @@ export const traditionGroups = [
     eyebrow: "Sweet blessings",
     title: "7 Bills and Chocolates",
     copy: "A little blessing for the future, paired with something sweet for today.",
-    presenters: ["Vic Miranda", "Jayson Hilario", "Joker Gonzales", "Shan San Felipe", "Jude Dumlao", "Santos San Felipe", "Samuel Dumlao"],
+    presenters: ["Ninong Vic Miranda", "Ninong Jayson Hilario", "Ninong Joker Gonzales", "Tito Shan San Felipe", "Dada Jude Dumlao", "Lolo Santos San Felipe", "PangLakay Samuel Dumlao"],
   },
   {
     id: "seven-candles-wishes",
@@ -53,7 +53,7 @@ export const traditionGroups = [
     eyebrow: "Lights of love",
     title: "7 Candles and Wishes",
     copy: "Seven candles glow while seven heartfelt wishes light Samantha's way.",
-    presenters: ["Apple San Felipe", "Lani Facturan", "Alita Fernando", "Jhie Tatlonghari", "Leny San Felipe", "Kaycee Tatlonghari", "Aurora Dumlao"],
+    presenters: ["Mommy Apple San Felipe", "Lola-mommyLani Facturan", "Lola Alita Fernando", "Nanay Jhie Tatlonghari", "Mama Leny San Felipe", "Mama Kaycee Tatlonghari", "Aurora Dumlao"],
   },
   {
     id: "seven-coloring-book",
@@ -69,7 +69,7 @@ export const traditionGroups = [
     eyebrow: "Pages of imagination",
     title: "7 Sketchbook",
     copy: "Seven sketchbooks ready for Samantha's ideas, doodles, and future masterpieces.",
-    presenters: ["Tim Mantaring", "Mark Jade Zulueta", "Gleen Zulueta", "Ivy Claire Cabilogan", "Kaycee Tatlonghari", "Jamie Joy Garcia", "Ryan Dale Egaña"],
+    presenters: ["Tito Tim Mantaring", "Tito Mark Jade Zulueta", "Tito Gleen Zulueta", "Tita Ivy Claire Cabilogan", "Mama Kaycee Tatlonghari", "Ninang Jamie Joy Garcia", "Tito Ryan Dale Egaña"],
   },
   {
     id: "seven-coloring-materials",
